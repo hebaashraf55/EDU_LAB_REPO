@@ -1,0 +1,210 @@
+{% extends 'edulap/index.html' %}
+
+{% load static %} 
+{% block content %}
+
+<section class="section main-banner" id="top" data-section="section1">
+    <video autoplay muted loop id="bg-video">
+        <source src="{% static 'assets/images/course-video.mp4' %}" type="video/mp4" />
+    </video>
+    
+    <div class="video-overlay header-text">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="caption">
+                <h6>Hello Students</h6>
+                <h2>Welcome To Education Center .. </h2>
+                <p>This is an edu meeting lab </p>
+                <div class="main-button-red">
+                  <div class="scroll-to-section"><a href="#contact">Join Us Now!</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</section>
+
+<!-- ***** Features Big Item Start ***** -->
+<section class="upcoming-meetings" id="meetings">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-heading">
+          <h2>Upcoming Meetings</h2>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="categories">
+          <h4>Current Meeting </h4>
+          <ul>
+            {% for meeting in meeting %}
+            <li><a href="{% url 'meeting-detail' meeting.slug %}">{{meeting.meetingName}}</a></li>
+            <br>
+            {% endfor %}
+          </ul>
+          <div class="main-button-red">
+            <a href="meetings.html">All Upcoming Meetings</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="row">
+          {% for meeting in meeting %}
+          <div class="col-lg-6">
+            <div class="meeting-item">
+              <div class="thumb">
+                <div class="price">
+                  <span>${{meeting.meetingPrice}}</span>
+                </div>
+                <a href="{% url 'meeting-detail' meeting.slug %}"><img src="{{ meeting.image.url }}" alt="New Lecturer Meeting"></a>
+              </div>
+              <div class="down-content">
+                <div class="date">
+                  <h6>Nov <span>10</span></h6>
+                </div>
+                <a href="{% url 'meeting-detail' meeting.slug %}"><h4>{{meeting.meetingName}}</h4></a>
+                <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ***** Features Big Item End ***** -->
+<section class="apply-now" id="apply">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 align-self-center">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="item">
+              <h3>APPLY TO GOIN US IN OUR EDUCATION JERNY </h3>
+              <p></p>
+              <div class="main-button-red">
+                <div class="scroll-to-section"><a href="#contact">Join Us Now!</a></div>
+            </div>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="item">
+              <h3>APPLY FOR NEW MEETING </h3>
+              <p></p>
+              <div class="main-button-yellow">
+                <div class="scroll-to-section"><a href="#contact">Join Us Now!</a></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="accordions is-first-expanded">
+          <article class="accordion">
+              <div class="accordion-head">
+                  <span>About Edu Meeting</span>
+                  <span class="icon">
+                      <i class="icon fa fa-chevron-right"></i>
+                  </span>
+              </div>
+              <div class="accordion-body">
+                  <div class="content">
+                      <p>If you want to get the latest meeting join us to have any new courses our meeting <a rel="nofollow" href="https://www.toocss.com/" target="_blank">Too CSS website</a>. If you need a working contact form script, please visit <a href="https://templatemo.com/contact" target="_parent">our contact page</a> for more info.</p>
+                  </div>
+              </div>
+          </article>
+          <article class="accordion">
+              <div class="accordion-head">
+                  <span>HTML CSS Bootstrap Layout</span>
+                  <span class="icon">
+                      <i class="icon fa fa-chevron-right"></i>
+                  </span>
+              </div>
+              <div class="accordion-body">
+                  <div class="content">
+                      <p>Etiam posuere metus orci, vel consectetur elit imperdiet eu. Cras ipsum magna, maximus at semper sit amet, eleifend eget neque. Nunc facilisis quam purus, sed vulputate augue interdum vitae. Aliquam a elit massa.<br><br>
+                      Nulla malesuada elit lacus, ac ultricies massa varius sed. Etiam eu metus eget nibh consequat aliquet. Proin fringilla, quam at euismod porttitor, odio odio tempus ligula, ut feugiat ex erat nec mauris. Donec viverra velit eget lectus sollicitudin tincidunt.</p>
+                  </div>
+              </div>
+          </article>
+          <article class="accordion">
+              <div class="accordion-head">
+                  <span>Please tell your friends</span>
+                  <span class="icon">
+                      <i class="icon fa fa-chevron-right"></i>
+                  </span>
+              </div>
+              <div class="accordion-body">
+                  <div class="content">
+                      <p>Ut vehicula mauris est, sed sodales justo rhoncus eu. Morbi porttitor quam velit, at ullamcorper justo suscipit sit amet. Quisque at suscipit mi, non efficitur velit.<br><br>
+                      Cras et tortor semper, placerat eros sit amet, porta est. Mauris porttitor sapien et quam volutpat luctus. Nullam sodales ipsum ac neque ultricies varius.</p>
+                  </div>
+              </div>
+          </article>
+          <article class="accordion last-accordion">
+              <div class="accordion-head">
+                  <span>Share this to your colleagues</span>
+                  <span class="icon">
+                      <i class="icon fa fa-chevron-right"></i>
+                  </span>
+              </div>
+              <div class="accordion-body">
+                  <div class="content">
+                      <p>Maecenas suscipit enim libero, vel lobortis justo condimentum id. Interdum et malesuada fames ac ante ipsum primis in faucibus.<br><br>
+                      Sed eleifend metus sit amet magna tristique, posuere laoreet arcu semper. Nulla pellentesque ut tortor sit amet maximus. In eu libero ullamcorper, semper nisi quis, convallis nisi.</p>
+                  </div>
+              </div>
+          </article>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="our-courses" id="courses">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-heading">
+          <h2>Our Popular Courses</h2>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="owl-courses-item owl-carousel">
+          {% for course in courses %}
+          <div class="item">
+            <img src="{{ course.image.url }}" alt="Course One">
+            <div class="down-content">
+              <h4>{{course.name}}</h4>
+              <div class="info">
+                <div class="row">
+                  <div class="col-8">
+                    <ul>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                    </ul>
+                  </div>
+                  <div class="col-4">
+                     <span>${{course.coursePrice}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock content %}

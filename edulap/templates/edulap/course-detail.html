@@ -1,0 +1,65 @@
+{% extends 'edulap/home.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="meetings-page" id="meetings">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="meeting-single-item">
+              <div class="thumb">
+                <div class="price">
+                  <span>$ {{course.coursePrice}}</span>
+                </div>
+                <div class="date">
+                  <h6>{{course.start_at|date:'M'}} <span>{{course.start_at|date:'d'}}</span></h6>
+                </div>
+                <a href="meeting-details.html"><img src="{{ course.image.url }}" alt=""></a>
+              </div>
+              <div class="down-content">
+                <a href="meeting-details.html"><h4>{{course.name}}</h4></a>
+                <p>Course Rate Is : {{course.courseRate}} </p>
+                <br>
+                <p>Recreio dos Bandeirantes, Rio de Janeiro - RJ, 22795-008, Brazil</p>
+                <p class="description">
+                  <br>{{course.courseDescription}}
+                </p>
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="hours">
+                      <h5>Hours</h5>
+                      <p>Monday - Friday: 07:00 AM - 13:00 PM<br>Saturday- Sunday: 09:00 AM - 15:00 PM</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="location">
+                      <h5>Location</h5>
+                      <p>Recreio dos Bandeirantes, 
+                      <br>Rio de Janeiro - RJ, 22795-008, Brazil</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="book now">
+                      <h5>Book Now</h5>
+                      <p>010-020-0340<br>090-080-0760</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="main-button-red">
+              <a href="{% url 'courses' %}">Back To Courses List</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+{% endblock %}

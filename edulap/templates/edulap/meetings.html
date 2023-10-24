@@ -1,0 +1,112 @@
+{% extends 'edulap/home.html' %}
+{% load static %}
+
+{% block content %}
+  <section class="heading-page header-text" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h6>Here are our upcoming meetings</h6>
+          <h2>Upcoming Meetings</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="meetings-page" id="meetings">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="filters">
+                <ul>
+                  <li data-filter="*"  class="active">All Meetings</li>
+                  <li data-filter=".soon">Soon</li>
+                  <li data-filter=".imp">Important</li>
+                  <li data-filter=".att">Attractive</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="row grid">
+                {% for meeting in meeting %}
+                <div class="col-lg-4 templatemo-item-col all soon">
+                  <div class="meeting-item">
+                    <div class="thumb">
+                      <div class="price">
+                        <span>${{meeting.meetingPrice}}</span>
+                      </div>
+                      <a href="{% url 'meeting-detail' meeting.slug %}"><img src="{{ meeting.image.url }}" alt=""></a>
+                    </div>
+                    <div class="down-content">
+                      <div class="date">
+                        <h6>{{meeting.startDate|date:'M'}}<span>{{meeting.startDate|date:'d'}}</span></h6>
+                      </div>
+                      <a href="{% url 'meeting-detail' meeting.slug %}"><h4>{{ meeting.meetingName }}</h4></a>
+                      <p>This Meeting Will Start At{{meeting.startDate}}<br>cursus ullamcorper.</p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                {% for meeting in soon %} 
+                <div class="col-lg-4 templatemo-item-col all att">
+                  <div class="meeting-item">
+                    <div class="thumb">
+                      <div class="price">
+                        <span>${{meeting.meetingPrice}}</span>
+                      </div>
+                      <a href="{% url 'meeting-detail' meeting.slug %}"><img src="{{ meeting.image.url }}" alt=""></a>
+                    </div>
+                    <div class="down-content">
+                      <div class="date">
+                        <h6>{{meeting.startDate|date:'M'}}<span>{{meeting.startDate|date:'d'}}</span></h6>
+                      </div>
+                      <a href="{% url 'meeting-detail' meeting.slug %}"><h4>{{ meeting.meetingName }}</h4></a>
+                      <p>This Meeting Will Start At{{meeting.startDate}}<br>cursus ullamcorper.</p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                {% for meeting in category %}
+                <div class="col-lg-4 templatemo-item-col all imp">
+                  <div class="meeting-item">
+                    <div class="thumb">
+                      <div class="price">
+                        <span>${{meeting.meetingPrice}}</span>
+                      </div>
+                      <a href="{% url 'meeting-detail' meeting.slug %}"><img src="{{ meeting.image.url }}" alt=""></a>
+                    </div>
+                    <div class="down-content">
+                      <div class="date">
+                        <h6>{{meeting.startDate|date:'M'}}<span>{{meeting.startDate|date:'d'}}</span></h6>
+                      </div>
+                      <a href="{% url 'meeting-detail' meeting.slug %}"><h4>{{ meeting.meetingName }}</h4></a>
+                      <p>This Meeting Will Start At{{meeting.startDate}}<br>when it comes to Free CSS.</p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            
+            <div class="col-lg-12">
+              <div class="pagination">
+                <ul>
+                  <li><a href="#">1</a></li>
+                  <li class="active"><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+{% endblock %}

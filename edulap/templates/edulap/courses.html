@@ -1,0 +1,80 @@
+{% extends 'edulap/home.html' %}
+{% load static %}
+
+{% block content %}
+  <section class="heading-page header-text" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h6>Here are our upcoming courses</h6>
+          <h2>Upcoming Courses</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="meetings-page" id="meetings">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="filters">
+                <ul>
+                  <li data-filter="*"  class="active">All Courses</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="row grid">
+                {% for course in courses %}
+                <div class="col-lg-4 templatemo-item-col all soon">
+                  <div class="meeting-item">
+                    <div class="thumb">
+                      <div class="price">
+                        <span>${{course.coursePrice}}</span>
+                      </div>
+                      <a href='{% url 'course-detail' course.slug %}'><img src="{{ course.image.url }}" alt=""></a>
+                    </div>
+                    <div class="down-content">
+                      <div class="date">
+                        <h6>{{course.start_at|date:'M'}}<span>{{course.start_at|date:'d'}}</span></h6>
+                      </div>
+                      <a href='{% url 'course-detail' course.slug %}'><h4>{{course.name}}</h4></a>
+                      <p>Course Description: <br> {{course.courseDescription}} </p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="pagination">
+                <ul>
+                  <li><a href="#">1</a></li>
+                  <li class="active"><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+{% endblock %}
+
+
+{% comment %} <h2> Courses Page </h2>
+{% block content %}
+
+
+    {% for course in courses %}
+        {{course.name}}
+    <h3><a href = '{% url 'course-detail' course.slug %}'>{{course.name}}</a><h3>
+    <hr>
+    {% endfor %}
+{% endblock  %} {% endcomment %}
